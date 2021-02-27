@@ -26,15 +26,11 @@ public class clickLeftMenuElements {
 
     @Test
     public void LeftMenuElements(){
-        driver.get("http://localhost:8090/litecart/admin/");    //my actual url
-//        driver.get("http://localhost/litecart/admin/");
+//        driver.get("http://localhost:8090/litecart/admin/");    //my actual url
+        driver.get("http://localhost/litecart/admin/");
         driver.findElement(By.name("username")).sendKeys("admin");
         driver.findElement(By.name("password")).sendKeys("admin");
         driver.findElement(By.xpath("//button[@name=\"login\"]")).click();
-
-
-//        By panelLocator = By.xpath("//div[@id='sidebar']//ul[@id='box-apps-menu']//li");
-//        By subPanelLocator = By.xpath("//li//span");
 
         By panelLocator = By.xpath("//div[@id='box-apps-menu-wrapper']//li[@id='app-']");
         By subPanelLocator = By.xpath("//li//span");
@@ -44,7 +40,7 @@ public class clickLeftMenuElements {
         for (int i = 0; i < listOfMenuPanels.size(); i++) {
             WebElement panel = getElementWithIndex(subPanelLocator, i);
             panel.click();
-            assertTrue(isElementPresent(driver, By.xpath("//td[@id='content']//h1[@style='margin-top: 0px;']")));
+            assertTrue(isElementPresent(driver, By.xpath("//h1")));
         }
 
     }
